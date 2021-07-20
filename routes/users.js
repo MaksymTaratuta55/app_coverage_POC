@@ -10,6 +10,14 @@ router.get("/", function (req, res, next) {
 
 /* GET user */
 router.get("/:name", function (req, res, next) {
+  if (req.params.name === "111") {
+    res.send().status(404);
+  }
+
+  if (req.params.name === "555") {
+    res.send().status(500);
+  }
+
   const result = userService.findUser(req.params.name);
   res.send(result).status(200);
 });
